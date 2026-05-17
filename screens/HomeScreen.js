@@ -55,11 +55,13 @@ const HomeScreen = ({ navigation }) => {
             name: item.fieldData.name,
             adress: item.fieldData.adres,
             color: item.fieldData.kleur,
+            content: item.fieldData["info-tekst"],
             image: item.fieldData.afbeelding?.url,
             focus: focusNames[item.fieldData.focus] || "Onbekende focus",
           })),
         );
-      });
+      })
+      .catch((error) => console.error("Error fetching campusses:", error));
   }, []);
 
   const filteredCampusses = campusses.filter(
