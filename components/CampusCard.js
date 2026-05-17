@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardHeader: {
-    fontSize: 28,
+    fontSize: 24,
     fontFamily: "Poppins",
     fontWeight: "bold",
     marginBottom: 10,
