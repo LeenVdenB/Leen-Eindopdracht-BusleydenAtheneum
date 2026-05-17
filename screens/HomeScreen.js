@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
 import { useState } from "react";
 
 import CampusCard from "../components/CampusCard";
@@ -47,6 +47,16 @@ const HomeScreen = ({ navigation }) => {
   }, []);
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.heroContainer}>
+        <Text style={styles.title}>Bouw aan jouw toekomst</Text>
+        <Text style={styles.subtitle}>
+          Busleyden Atheneum is de grootste en meest veelzijdige secundaire
+          school van Mechelen.In Busleyden Atheneum willen we dat je een
+          studierichting volgt die aansluit bij jouw talenten en interesses.
+        </Text>
+      </View>
+
+      <Text style={styles.sectionTitle}>Onze campussen</Text>
       {campusses.map((campus) => (
         <CampusCard
           key={campus.id}
@@ -66,7 +76,30 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ecebe9",
+    backgroundColor: "#ffffff",
+  },
+  heroContainer: {
+    padding: 20,
+    backgroundColor: "#ffffff",
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#000000",
+    paddingBottom: 16,
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#000000",
+    textAlign: "left",
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#000000",
+    padding: 20,
+    textAlign: "center",
   },
 });
 
