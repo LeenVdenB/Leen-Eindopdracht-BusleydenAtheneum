@@ -1,9 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { useState } from "react";
 
 import CampusCard from "../components/CampusCard";
 import { useEffect } from "react";
+import Checkbox from "expo-checkbox";
 
 const focusNames = {
   "": "Alle focus",
@@ -19,6 +27,14 @@ const focusNames = {
 
 const HomeScreen = ({ navigation }) => {
   const [campusses, setCampusses] = useState([]);
+  const [selectedFocuses, setSelectedFocuses] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleFocus = (focus) => {
+    setSelectedFocuses((prev) =>
+      prev.includes(focus) ? prev.filter((f) => f !== focus) : [...prev, focus],
+    );
+  };
 
   //campus
   useEffect(() => {
@@ -45,6 +61,12 @@ const HomeScreen = ({ navigation }) => {
         );
       });
   }, []);
+
+  const filteredCampusses = campusses.filter(
+    (campus) =>
+      selectedFocuses.length === 0 || selectedFocuses.includes(campus.focus),
+  );
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.heroContainer}>
@@ -57,7 +79,33 @@ const HomeScreen = ({ navigation }) => {
       </View>
 
       <Text style={styles.sectionTitle}>Onze campussen</Text>
-      {campusses.map((campus) => (
+      <TouchableOpacity
+        style={styles.dropdownButton}
+        onPress={() => setDropdownOpen(!dropdownOpen)}
+      >
+        <Text style={styles.dropdownButtonText}>
+          {selectedFocuses.length === 0
+            ? "Kies één of meerdere focussen"
+            : selectedFocuses.join(", ")}
+        </Text>
+      </TouchableOpacity>
+
+      {dropdownOpen && (
+        <View style={styles.dropdownContent}>
+          {Object.values(focusNames).map((focus) => (
+            <View key={focus} style={styles.checkboxRow}>
+              <Checkbox
+                value={selectedFocuses.includes(focus)}
+                onValueChange={() => toggleFocus(focus)}
+                color="#000"
+              />
+              <Text style={styles.checkboxLabel}>{focus}</Text>
+            </View>
+          ))}
+        </View>
+      )}
+
+      {filteredCampusses.map((campus) => (
         <CampusCard
           key={campus.id}
           name={campus.name}
@@ -100,6 +148,45 @@ const styles = StyleSheet.create({
     color: "#000000",
     padding: 20,
     textAlign: "center",
+  },
+  checkboxContainer: {
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+  },
+  checkboxRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  checkboxLabel: {
+    marginLeft: 10,
+    fontSize: 16,
+  },
+  dropdownButton: {
+    backgroundColor: "#f2f2f2",
+    padding: 15,
+    marginHorizontal: 20,
+    borderRadius: 8,
+  },
+  dropdownButtonText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  dropdownContent: {
+    backgroundColor: "#fafafa",
+    marginHorizontal: 20,
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  checkboxRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  checkboxLabel: {
+    marginLeft: 10,
+    fontSize: 16,
   },
 });
 
