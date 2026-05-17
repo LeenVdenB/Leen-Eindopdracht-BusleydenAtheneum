@@ -2,16 +2,16 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const CampusCard = ({ color }) => {
+const CampusCard = ({ name, focus, address, color, onPress }) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, { backgroundColor: color }]}>
       <View style={styles.cardHeaderContainer}>
-        <Text style={styles.cardHeader}>Campus naam</Text>
-        <Text style={styles.cardFocus}>Campus focus</Text>
+        <Text style={styles.cardHeader}>{name}</Text>
+        <Text style={styles.cardFocus}>{focus}</Text>
       </View>
-      <Text style={styles.cardAdres}>Campus adres</Text>
-      <TouchableOpacity>
+      <Text style={styles.cardAdres}>{address}</Text>
+      <TouchableOpacity onPress={onPress}>
         <Text style={styles.cardButton}>Bekijk campus aanbod</Text>
       </TouchableOpacity>
     </View>
@@ -20,7 +20,6 @@ const CampusCard = ({ color }) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: "#979797",
     margin: 20,
     padding: 16,
     borderRadius: 16,
