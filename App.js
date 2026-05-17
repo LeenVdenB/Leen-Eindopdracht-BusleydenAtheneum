@@ -15,18 +15,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ header: () => <CustomHeader title="Home" /> }}
+          options={{
+            header: () => <CustomHeader title="Busleyden Atheneum" />,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
