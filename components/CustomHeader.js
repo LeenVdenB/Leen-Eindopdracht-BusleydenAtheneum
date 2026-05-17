@@ -1,10 +1,17 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const CustomHeader = ({ title }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.7}
+      onPress={() => navigation.navigate("Home")}
+    >
       <Text style={styles.title}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
