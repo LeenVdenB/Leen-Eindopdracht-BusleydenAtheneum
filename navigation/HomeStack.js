@@ -13,7 +13,7 @@ export default function HomeStack() {
         name="Home"
         component={HomeScreen}
         options={{
-          header: () => <CustomHeader title="Busleyden Atheneum" />,
+          headerShown: false,
         }}
       />
       <Stack.Screen

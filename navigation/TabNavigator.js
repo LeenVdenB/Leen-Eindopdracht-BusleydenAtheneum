@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import HomeStack from "./HomeStack";
 import NewsScreen from "../screens/NewsScreen";
 import ProductScreen from "../screens/ProductScreen";
+import CustomHeader from "../components/CustomHeader";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +12,16 @@ export default function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: "#86BC25",
+        },
+        headerTitleStyle: {
+          color: "#000000",
+          fontSize: 24,
+          fontWeight: "bold",
+          fontFamily: "Poppins",
+        },
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: "#ffffff",
@@ -25,7 +35,7 @@ export default function TabNavigator() {
       }}
     >
       <Tab.Screen
-        name="HomeTab"
+        name="Busleyden Atheneum"
         component={HomeStack}
         options={{
           tabBarIcon: ({ color }) => (
@@ -35,7 +45,7 @@ export default function TabNavigator() {
       />
 
       <Tab.Screen
-        name="NewsTab"
+        name="Nieuws"
         component={NewsScreen}
         options={{
           tabBarIcon: ({ color }) => (
@@ -45,7 +55,7 @@ export default function TabNavigator() {
       />
 
       <Tab.Screen
-        name="ProductTab"
+        name="Webshop"
         component={ProductScreen}
         options={{
           tabBarIcon: ({ color }) => (
