@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   useWindowDimensions,
+  TouchableOpacity,
 } from "react-native";
 import { useEffect } from "react";
 import RenderHTML from "react-native-render-html";
@@ -18,12 +19,16 @@ const formatDate = (isoString) => {
   return `${day}/${month}/${year}`;
 };
 
-const NewsDetailScreen = ({ route }) => {
+const NewsDetailScreen = ({ route, navigation }) => {
   const { title, summary, category, date, image, content } = route.params;
   const { width } = useWindowDimensions();
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.backButton}>← Terug naar nieuws</Text>
+      </TouchableOpacity>
+
       {image && <Image source={{ uri: image }} style={styles.image} />}
       <View style={styles.topContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -83,6 +88,12 @@ const styles = StyleSheet.create({
   adressText: {
     fontSize: 16,
     marginBottom: 10,
+  },
+  backButton: {
+    fontSize: 16,
+    color: "#86BC25",
+    marginBottom: 16,
+    fontWeight: "bold",
   },
 });
 

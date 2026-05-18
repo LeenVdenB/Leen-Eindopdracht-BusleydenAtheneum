@@ -6,16 +6,20 @@ import {
   ScrollView,
   Image,
   useWindowDimensions,
+  TouchableOpacity,
 } from "react-native";
 import { useEffect } from "react";
 import RenderHTML from "react-native-render-html";
 
-const CampusDetailScreen = ({ route }) => {
+const CampusDetailScreen = ({ route, navigation }) => {
   const { name, focus, adress, image, content, color } = route.params;
   const { width } = useWindowDimensions();
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.backButton}>← Terug naar overzicht</Text>
+      </TouchableOpacity>
       {image && <Image source={{ uri: image }} style={styles.image} />}
       <View style={styles.topContainer}>
         <Text style={styles.title}>{name}</Text>
@@ -83,6 +87,12 @@ const styles = StyleSheet.create({
   adressText: {
     fontSize: 16,
     marginBottom: 10,
+  },
+  backButton: {
+    fontSize: 16,
+    color: "#86BC25",
+    marginBottom: 16,
+    fontWeight: "bold",
   },
 });
 
