@@ -12,13 +12,15 @@ export default function NewsStack() {
       <Stack.Screen
         name="NewsScreen"
         component={NewsScreen}
-        options={{ headerShown: false }}
+        options={{
+          header: () => <CustomHeader title="Nieuws" />,
+        }}
       />
       <Stack.Screen
         name="NewsDetail"
         component={NewsDetailScreen}
         options={{
-          header: () => <CustomHeader title="News Details" />,
+          header: () => <CustomHeader title="Artikel" />,
         }}
       />
     </Stack.Navigator>
