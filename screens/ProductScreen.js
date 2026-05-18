@@ -1,12 +1,16 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
+import { useNavigation } from "@react-navigation/native";
 
-export default function WebshopScreen() {
+const ProductScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Webshop</Text>
+      <Text style={styles.title}>Producten</Text>
+      <ProductCard />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +23,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+export default ProductScreen;

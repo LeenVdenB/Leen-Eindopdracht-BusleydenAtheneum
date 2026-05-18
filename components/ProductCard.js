@@ -1,4 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const ProductCard = ({}) => {
   const navigation = useNavigation();
@@ -27,3 +29,5 @@ const styles = StyleSheet.create({
     color: "#333",
   },
 });
+
+export default ProductCard;
