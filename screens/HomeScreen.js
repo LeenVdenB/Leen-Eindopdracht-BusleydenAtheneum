@@ -155,15 +155,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 10,
   },
-  checkboxRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 8,
-  },
-  checkboxLabel: {
-    marginLeft: 10,
-    fontSize: 16,
-  },
   dropdownButton: {
     backgroundColor: "#f2f2f2",
     padding: 15,
