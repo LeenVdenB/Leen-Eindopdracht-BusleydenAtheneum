@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import HomeStack from "./HomeStack";
-import NewsScreen from "../screens/NewsScreen";
+import NewsStack from "./NewsStack";
 import ProductScreen from "../screens/ProductScreen";
 import CustomHeader from "../components/CustomHeader";
 
@@ -52,8 +52,9 @@ export default function TabNavigator() {
 
       <Tab.Screen
         name="Nieuws"
-        component={NewsScreen}
+        component={NewsStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="newspaper" size={28} color={color} />
           ),
