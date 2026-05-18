@@ -5,6 +5,7 @@ import HomeStack from "./HomeStack";
 import NewsStack from "./NewsStack";
 import ProductScreen from "../screens/ProductScreen";
 import CustomHeader from "../components/CustomHeader";
+import ProductStack from "./ProductStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -63,8 +64,9 @@ export default function TabNavigator() {
 
       <Tab.Screen
         name="Webshop"
-        component={ProductScreen}
+        component={ProductStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="cart" size={28} color={color} />
           ),
