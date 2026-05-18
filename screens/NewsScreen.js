@@ -6,9 +6,11 @@ import {
   ScrollView,
   Button,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import { useState, useEffect } from "react";
 import Checkbox from "expo-checkbox";
+import { Picker } from "@react-native-picker/picker";
 
 import NewsCard from "../components/NewsCard";
 
@@ -28,6 +30,9 @@ const formatDate = (isoString) => {
 
 const NewsScreen = ({ navigation }) => {
   const [news, setNews] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortOption, setSortOption] = useState("date-desc");
 
   useEffect(() => {
     fetch(
@@ -57,11 +62,53 @@ const NewsScreen = ({ navigation }) => {
       .catch((error) => console.error("Error fetching news:", error));
   }, []);
 
+  const filteredNews = news.filter(
+    (n) =>
+      (selectedCategory === "" || n.category === selectedCategory) &&
+      n.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
+  const sortedNews = [...filteredNews].sort((a, b) => {
+    if (sortOption === "date-desc") return new Date(b.date) - new Date(a.date);
+    if (sortOption === "date-asc") return new Date(a.date) - new Date(b.date);
+    return 0;
+  });
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Nieuws</Text>
 
-      {news.map((news) => (
+      <TextInput
+        style={styles.search}
+        placeholder="Zoek nieuws..."
+        placeholderTextColor="#888"
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+      />
+
+      <View style={styles.pickerRow}>
+        <Picker
+          selectedValue={selectedCategory}
+          onValueChange={setSelectedCategory}
+          style={styles.pickerHalf}
+        >
+          <Picker.Item label="Alle categorieën" value="" />
+          <Picker.Item label="Nieuws" value="Nieuws" />
+          <Picker.Item label="Terugblik" value="Terugblik" />
+          <Picker.Item label="Activiteit" value="Activiteit" />
+        </Picker>
+
+        <Picker
+          selectedValue={sortOption}
+          onValueChange={setSortOption}
+          style={styles.pickerHalf}
+        >
+          <Picker.Item label="Nieuwste eerst" value="date-desc" />
+          <Picker.Item label="Oudste eerst" value="date-asc" />
+        </Picker>
+      </View>
+
+      {sortedNews.map((news) => (
         <NewsCard
           key={news.id}
           title={news.title}
@@ -85,6 +132,26 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
+  },
+  search: {
+    width: "100%",
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    fontSize: 16,
+  },
+  pickerRow: {
+    flexDirection: "row",
+    width: "100%",
+    gap: 10,
+  },
+  pickerHalf: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
   },
 });
 
