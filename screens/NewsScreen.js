@@ -46,7 +46,8 @@ const NewsScreen = ({ navigation }) => {
             id: item.id,
             title: item.fieldData.name,
             summary: item.fieldData["intro-tekst"],
-            category: item.fieldData.categorie,
+            category:
+              categoryMap[item.fieldData.categorie] || "Onbekende categorie",
             date: item.fieldData.datum,
             image: item.fieldData.foto?.url,
             content: item.fieldData.body,
@@ -65,7 +66,7 @@ const NewsScreen = ({ navigation }) => {
           key={news.id}
           title={news.title}
           summary={news.summary}
-          category={categoryMap[news.category] || "Onbekende categorie"}
+          category={news.category}
           date={formatDate(news.date)}
           image={news.image}
           onPress={() => navigation.navigate("NewsDetail", news)}
