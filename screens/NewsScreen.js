@@ -1,12 +1,25 @@
-import { View, Text, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Button,
+  TouchableOpacity,
+} from "react-native";
+import { useState, useEffect } from "react";
+import Checkbox from "expo-checkbox";
 
-export default function NewsScreen() {
+import NewsCard from "../components/NewsCard";
+
+const NewsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Nieuws</Text>
+      <NewsCard />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +32,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+export default NewsScreen;
