@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const CampusCard = ({ name, focus, address, color, onPress }) => {
+const CampusCard = ({ name, focus, adress, color, onPress }) => {
   const navigation = useNavigation();
   return (
     <View style={[styles.cardContainer, { backgroundColor: color }]}>
@@ -10,7 +10,7 @@ const CampusCard = ({ name, focus, address, color, onPress }) => {
         <Text style={styles.cardHeader}>{name}</Text>
         <Text style={styles.cardFocus}>{focus}</Text>
       </View>
-      <Text style={styles.cardAdres}>{address}</Text>
+      <Text style={styles.cardAdress}>{adress}</Text>
       <TouchableOpacity onPress={onPress}>
         <Text style={styles.cardButton}>Bekijk campus aanbod</Text>
       </TouchableOpacity>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 8,
   },
-  cardAdres: {
+  cardAdress: {
     fontSize: 16,
     fontWeight: "bold",
     fontFamily: "Arial",
