@@ -2,25 +2,24 @@ import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCard = ({}) => {
+const ProductCard = ({
+  title,
+  description,
+  price,
+  image,
+  category,
+  onPress,
+}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.card}>
-      <Text style={styles.category}>Categorie</Text>
-      <Image
-        source={{ uri: "https://via.placeholder.com/150" }}
-        style={styles.image}
-      />
+      <Text style={styles.category}>{category}</Text>
+      <Image source={image} style={styles.image} resizeMode="contain" />
       <Text style={styles.divider}></Text>
-      <Text style={styles.title}>Product Name</Text>
-      <Text style={styles.description}>
-        Description of the product goes here.
-      </Text>
-      <Text style={styles.price}>€9.99</Text>
-      <Button
-        title="Bekijk product"
-        onPress={() => navigation.navigate("ProductDetail")}
-      />
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.price}>€{price}</Text>
+      <Button title="Bekijk product" onPress={onPress} />
     </View>
   );
 };
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 150,
+    height: 200,
     borderRadius: 10,
     marginVertical: 10,
   },
