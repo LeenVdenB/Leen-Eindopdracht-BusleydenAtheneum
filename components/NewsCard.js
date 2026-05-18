@@ -8,22 +8,20 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const NewsCard = ({}) => {
+const NewsCard = ({ title, summary, category, date, image, onPress }) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.card}>
-      <Text style={styles.header}>News Title</Text>
-      <Image
-        source={{ uri: "https://via.placeholder.com/300" }}
-        style={styles.image}
-      />
-      <Text style={styles.category}>Category</Text>
-      <Text style={styles.summary}>This is a summary of the news article.</Text>
-      <Text style={styles.date}>Date</Text>
-      <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.card}>
+        <Text style={styles.header}>{title}</Text>
+        <Image source={{ uri: image }} style={styles.image} />
+        <Text style={styles.category}>{category}</Text>
+        <Text style={styles.summary}>{summary}</Text>
+        <Text style={styles.date}>{date}</Text>
+
         <Text style={styles.button}>Lees meer</Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
