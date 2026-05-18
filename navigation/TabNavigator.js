@@ -22,7 +22,7 @@ export default function TabNavigator() {
           fontWeight: "bold",
           fontFamily: "Poppins",
         },
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
         tabBarStyle: {
           backgroundColor: "#ffffff",
           borderTopWidth: 0,
@@ -30,12 +30,17 @@ export default function TabNavigator() {
           height: 90,
           paddingTop: 16,
         },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: "bold",
+          fontFamily: "Poppins",
+        },
         tabBarActiveTintColor: "#86BC25",
         tabBarInactiveTintColor: "#999",
       }}
     >
       <Tab.Screen
-        name="Busleyden Atheneum"
+        name="Home"
         component={HomeStack}
         options={{
           headerShown: false,
