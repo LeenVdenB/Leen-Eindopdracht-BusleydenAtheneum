@@ -38,6 +38,7 @@ export default function TabNavigator() {
         name="Busleyden Atheneum"
         component={HomeStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={28} color={color} />
           ),

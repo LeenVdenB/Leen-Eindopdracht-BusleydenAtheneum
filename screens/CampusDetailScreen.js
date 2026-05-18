@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   topContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "column",
+    alignItems: "left",
     justifyContent: "space-between",
     marginBottom: 10,
   },
