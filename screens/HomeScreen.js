@@ -124,7 +124,7 @@ const HomeScreen = ({ navigation }) => {
           key={campus.id}
           name={campus.name}
           focus={campus.focus}
-          address={campus.adress}
+          adress={campus.adress}
           color={campus.color}
           onPress={() => navigation.navigate("CampusDetail", campus)}
         />

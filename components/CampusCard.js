@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   cardAdress: {
     fontSize: 16,
-    fontWeight: "bold",
+    color: "#000000",
     fontFamily: "Arial",
     marginBottom: 10,
   },
