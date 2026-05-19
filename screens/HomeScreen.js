@@ -86,7 +86,10 @@ const HomeScreen = ({ navigation }) => {
           >
             <Text style={styles.buttonText}>Bekijk de studiewijzer</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Game")}
+          >
             <Text style={styles.buttonText}>Speel de game!</Text>
           </TouchableOpacity>
         </View>
