@@ -68,7 +68,6 @@ const ProductScreen = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Webshop</Text>
       <TextInput
         style={styles.search}
         placeholder="Zoek producten..."
@@ -119,10 +118,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
   },
   search: {
     width: "100%",

@@ -6,6 +6,7 @@ import {
   ScrollView,
   Button,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { useState } from "react";
 
@@ -131,6 +132,12 @@ const styles = StyleSheet.create({
   heroContainer: {
     padding: 20,
     backgroundColor: "#ffffff",
+  },
+  heroImage: {
+    width: "100%",
+    height: 200,
+    resizeMode: "cover",
+    marginBottom: 16,
   },
   title: {
     fontSize: 28,

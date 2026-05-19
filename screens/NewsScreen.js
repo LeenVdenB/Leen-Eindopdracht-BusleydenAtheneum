@@ -76,8 +76,6 @@ const NewsScreen = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Nieuws</Text>
-
       <TextInput
         style={styles.search}
         placeholder="Zoek nieuws..."
@@ -128,10 +126,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
   },
   search: {
     width: "100%",
