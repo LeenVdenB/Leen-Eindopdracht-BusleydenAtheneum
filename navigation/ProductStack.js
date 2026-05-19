@@ -13,7 +13,7 @@ export default function ProductStack() {
         name="ProductScreen"
         component={ProductScreen}
         options={{
-          header: () => <CustomHeader title="Producten" />,
+          header: () => <CustomHeader title="Webshop" />,
         }}
       />
       <Stack.Screen
