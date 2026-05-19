@@ -6,10 +6,14 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const StudiewijzerScreen = ({}) => {
+const StudiewijzerScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.backButton}>← Terug naar home</Text>
+      </TouchableOpacity>
       <ScrollView contentContainerStyle={styles.content}>
         <Text style={styles.text}>Hier komt de studiewijzer</Text>
       </ScrollView>
@@ -30,6 +34,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     textAlign: "center",
+  },
+  backButton: {
+    fontSize: 16,
+    color: "#86BC25",
+    marginHorizontal: 20,
+    marginTop: 20,
+    fontWeight: "bold",
+    alignSelf: "flex-start",
   },
 });
 
