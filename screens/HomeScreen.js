@@ -79,6 +79,17 @@ const HomeScreen = ({ navigation }) => {
           school van Mechelen.In Busleyden Atheneum willen we dat je een
           studierichting volgt die aansluit bij jouw talenten en interesses.
         </Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Studiewijzer")}
+          >
+            <Text style={styles.buttonText}>Bekijk de studiewijzer</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Speel de game!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <Text style={styles.sectionTitle}>Onze campussen</Text>
@@ -186,6 +197,22 @@ const styles = StyleSheet.create({
   },
   checkboxLabel: {
     marginLeft: 10,
+    fontSize: 16,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    gap: 24,
+    marginTop: 20,
+  },
+  button: {
+    backgroundColor: "#86BC25",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "#000000",
+    fontWeight: "bold",
     fontSize: 16,
   },
 });

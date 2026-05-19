@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "../screens/HomeScreen";
 import CampusDetailScreen from "../screens/CampusDetailScreen";
+import StudiewijzerScreen from "../screens/StudiewijzerScreen";
 import CustomHeader from "../components/CustomHeader";
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +22,13 @@ export default function HomeStack() {
         component={CampusDetailScreen}
         options={{
           header: () => <CustomHeader title="Campus Details" />,
+        }}
+      />
+      <Stack.Screen
+        name="Studiewijzer"
+        component={StudiewijzerScreen}
+        options={{
+          header: () => <CustomHeader title="Studiewijzer" />,
         }}
       />
     </Stack.Navigator>
