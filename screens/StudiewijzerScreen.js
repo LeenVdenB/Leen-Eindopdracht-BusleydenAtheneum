@@ -101,6 +101,27 @@ const StudiewijzerScreen = ({ navigation }) => {
               <RenderHTML
                 source={{ html: graadContent }}
                 contentWidth={width - 40}
+                tagsStyles={{
+                  h3: {
+                    fontSize: 22,
+                    fontWeight: "bold",
+                    marginBottom: 10,
+                    marginTop: 20,
+                  },
+                  h4: {
+                    fontSize: 18,
+                    fontWeight: "600",
+                    marginBottom: 8,
+                    marginTop: 15,
+                  },
+                  h6: {
+                    fontSize: 16,
+                    fontWeight: "600",
+                    marginBottom: 4,
+                    marginTop: 12,
+                  },
+                  p: { fontSize: 14, marginBottom: 10, lineHeight: 20 },
+                }}
               />
             </View>
           )}
