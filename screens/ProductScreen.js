@@ -5,6 +5,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  Switch,
 } from "react-native";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
@@ -89,14 +90,20 @@ const ProductScreen = ({ navigation }) => {
           <Picker.Item label="Hoodie" value="Hoodie" />
         </Picker>
 
-        <Picker
-          selectedValue={sortOption}
-          onValueChange={setSortOption}
-          style={styles.pickerHalf}
-        >
-          <Picker.Item label="Laag naar hoog" value="price-asc" />
-          <Picker.Item label="Hoog naar laag" value="price-desc" />
-        </Picker>
+        <View style={styles.switchRow}>
+          <Text style={styles.switchLabel}>
+            Prijs: {sortOption === "price-asc" ? "Laag → Hoog" : "Hoog → Laag"}
+          </Text>
+
+          <Switch
+            value={sortOption === "price-asc"}
+            onValueChange={(value) =>
+              setSortOption(value ? "price-asc" : "price-desc")
+            }
+            thumbColor={sortOption === "price-asc" ? "#86BC25" : "#ccc"}
+            trackColor={{ true: "#b7d88a", false: "#999" }}
+          />
+        </View>
       </View>
       {sortedProducts.map((product) => (
         <ProductCard
@@ -138,6 +145,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: "#ccc",
+  },
+  switchRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 10,
+    paddingVertical: 8,
+  },
+
+  switchLabel: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
   },
 });
 
