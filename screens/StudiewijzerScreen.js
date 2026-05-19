@@ -18,6 +18,40 @@ const StudiewijzerScreen = ({ navigation }) => {
   const [selectedGraad, setSelectedGraad] = useState("");
   const { width } = useWindowDimensions();
 
+  const htmlStyles = {
+    h3: {
+      fontSize: 24,
+      fontWeight: "bold",
+      marginTop: 12,
+      borderBottomWidth: 4,
+      borderBottomColor: "#86BC25",
+      paddingBottom: 8,
+    },
+    h4: {
+      fontSize: 20,
+      fontWeight: "600",
+      marginBottom: 8,
+      marginTop: 15,
+    },
+    h5: {
+      fontSize: 12,
+      fontStyle: "italic",
+      fontWeight: "600",
+      marginBottom: 6,
+    },
+    h6: {
+      fontSize: 16,
+      fontWeight: "600",
+      marginBottom: 4,
+      marginTop: 12,
+    },
+    p: {
+      fontSize: 14,
+      marginBottom: 10,
+      lineHeight: 20,
+    },
+  };
+
   useEffect(() => {
     fetch(
       "https://api.webflow.com/v2/collections/6a06c29d1cce3894b86c1e0b/items",
@@ -101,35 +135,7 @@ const StudiewijzerScreen = ({ navigation }) => {
               <RenderHTML
                 source={{ html: graadContent }}
                 contentWidth={width - 40}
-                tagsStyles={{
-                  h3: {
-                    fontSize: 24,
-                    fontWeight: "bold",
-                    marginTop: 12,
-                    borderBottomWidth: 4,
-                    borderBottomColor: "#86BC25",
-                    paddingBottom: 8,
-                  },
-                  h4: {
-                    fontSize: 20,
-                    fontWeight: "600",
-                    marginBottom: 8,
-                    marginTop: 15,
-                  },
-                  h5: {
-                    fontSize: 12,
-                    fontStyle: "italic",
-                    fontWeight: "600",
-                    marginBottom: 6,
-                  },
-                  h6: {
-                    fontSize: 16,
-                    fontWeight: "600",
-                    marginBottom: 4,
-                    marginTop: 12,
-                  },
-                  p: { fontSize: 14, marginBottom: 10, lineHeight: 20 },
-                }}
+                tagsStyles={htmlStyles}
               />
             </View>
           )}

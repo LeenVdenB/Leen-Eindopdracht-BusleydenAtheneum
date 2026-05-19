@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   pickerRow: {
     flexDirection: "row",
     width: "100%",
-    gap: 10,
+    justifyContent: "space-between",
   },
   pickerHalf: {
     flex: 1,
