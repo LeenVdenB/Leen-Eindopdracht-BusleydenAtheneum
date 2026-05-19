@@ -103,16 +103,24 @@ const StudiewijzerScreen = ({ navigation }) => {
                 contentWidth={width - 40}
                 tagsStyles={{
                   h3: {
-                    fontSize: 22,
+                    fontSize: 24,
                     fontWeight: "bold",
-                    marginBottom: 10,
-                    marginTop: 20,
+                    marginTop: 12,
+                    borderBottomWidth: 4,
+                    borderBottomColor: "#86BC25",
+                    paddingBottom: 8,
                   },
                   h4: {
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: "600",
                     marginBottom: 8,
                     marginTop: 15,
+                  },
+                  h5: {
+                    fontSize: 12,
+                    fontStyle: "italic",
+                    fontWeight: "600",
+                    marginBottom: 6,
                   },
                   h6: {
                     fontSize: 16,
@@ -157,10 +165,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   picker: {
+    backgroundColor: "#F5F5F5",
+    borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#ccc",
-    backgroundColor: "#fff",
-    borderRadius: 8,
+    borderColor: "#ddd",
+    marginBottom: 15,
+    overflow: "hidden",
   },
   results: {
     marginTop: 30,
